@@ -1,0 +1,26 @@
+RewriteEngine On
+RewriteBase /eWallet/
+
+#check whether uri contains "categories"
+RewriteCond %{REQUEST_URI} categories [NC] 
+RewriteRule ^api/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)*$ server/controllers/RestAPI/categories.php?request=$1&params[]=$2 [NC,L]
+
+RewriteCond %{REQUEST_URI} categories [NC] 
+RewriteRule ^api/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/*$ server/controllers/RestAPI/categories.php?request=$1&params[]=$2 [NC,L]
+
+RewriteCond %{REQUEST_URI} categories [NC] 
+RewriteRule ^api/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z-\s]+)*$ server/controllers/RestAPI/categories.php?request=$1&params[]=$2&params[]=$3 [NC,L]
+
+RewriteCond %{REQUEST_URI} categories [NC] 
+RewriteRule ^api/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z-\s]+)/*$ server/controllers/RestAPI/categories.php?request=$1&params[]=$2&params[]=$3 [NC,L]
+
+RewriteCond %{REQUEST_URI} categories [NC] 
+RewriteRule ^api/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z-\s]+)/([0-9a-zA-Z-\s]+)*$ server/controllers/RestAPI/categories.php?request=$1&params[]=$2&params[]=$3&params[]=$4 [NC,L]
+
+RewriteCond %{REQUEST_URI} categories [NC] 
+RewriteRule ^api/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z-\s]+)/([0-9a-zA-Z-\s]+)/*$ server/controllers/RestAPI/categories.php?request=$1&params[]=$2&params[]=$3&params[]=$4 [NC,L]
+
+RewriteRule ^api/([0-9a-zA-Z]+)*$ server/controllers/RestAPI/users.php?request=$1 [NC,L]
+RewriteRule ^api/([0-9a-zA-Z]+)/*$ server/controllers/RestAPI/users.php?request=$1 [NC,L]
+RewriteRule ^api/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)*$ server/controllers/RestAPI/users.php?request=$1&params[]=$2 [NC,L]
+RewriteRule ^api/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)*$ server/controllers/RestAPI/users.php?request=$1&params[]=$2&params[]=$3 [NC,L]

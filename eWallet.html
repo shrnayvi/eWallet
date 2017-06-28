@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<head>
+   <link rel="stylesheet" href="http://localhost/eWallet/client/static/css/bootstrap.min.css">
+   <script src="http://localhost/eWallet/client/static/js/jquery-3.2.0.min.js"></script>
+   <script src="http://localhost/eWallet/client/static/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="http://localhost/eWallet/client/static/css/main.css">
+   <link rel="stylesheet" href="http://localhost/eWallet/client/static/css/font-awesome-4.7.0/css/font-awesome.min.css">
+   <script src="http://localhost/eWallet/client/static/js/finchjs/finch.js"></script>
+   <title>eWallet</title>
+</head>
+<body>
+   <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+         <div class="navbar-header">
+               <a class="navbar-brand" href="eWallet.html">eWallet</a>
+         </div>
+         <ul class="nav navbar-nav"></ul>
+         <ul class="nav navbar-nav navbar-right">
+               <li><a href="#" id="dashboard-nav"><span class="fa fa-dashboard"></span> Dashboard</a></li>
+               <li><a href="#" id="register"><span class="fa fa-user" ></span> Register</a></li>
+               <li><a href="#" id="login-nav"><span class="fa fa-sign-in"></span> Login</a></li>
+               <li><a href="#" id="logout-nav"><span class="fa fa-sign-out"></span> Logout</a></li>
+         </ul>
+      </div>
+   </nav>
+    
+   <div class="container-fluid" id="main-content">
+      <div id="page-content">
+         <h1>Welcome to eWallet</h1>
+         <h4>Please login!!!</h4>
+      </div>
+   </div>
+   <script src="http://localhost/eWallet/client/static/js/handlebars-v4.0.10.js"></script>
+   <script src="http://localhost/eWallet/client/static/js/functions.js"></script>
+   <script src="http://localhost/eWallet/client/static/js/routes.js"></script>
+   <script src="http://localhost/eWallet/client/static/js/registration.js"></script>
+   <script src="http://localhost/eWallet/client/static/js/categories.js"></script>
+   <script src="http://localhost/eWallet/client/static/js/login.js"></script>
+   <script src="http://localhost/eWallet/client/static/js/logout.js"></script>
+   <script>
+      if(get_cookie("token")!= ""){
+         $("#logout-nav").css("display","block");
+         $("#login-nav").css("display","none");
+         $("#dashboard-nav").css("display","block");
+         $("#register").css("display","none");
+      }
+      // $(document).on('click','.delete',function(){
+      //    var id = $('.delete').attr('id');
+      //    alert(id);
+      // });
+   </script>
+</body>
+</html>
