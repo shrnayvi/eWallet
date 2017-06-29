@@ -13,12 +13,10 @@
       public function __construct($request){
          $this->method = $_SERVER['REQUEST_METHOD'];
          $headers = getallheaders();
-         $this->token = isset($_COOKIE['token']) ? $_COOKIE['token'] : NULL;
          $token_not_required = array('login','register','email');
          $this->access_token = isset($headers['access_token'])?$headers['access_token'] : NULL;
          
-         // if(isset($access_token) && $access_token == $token || in_array($request,$token_not_required) || ($this->method == 'PUT' && $request == 'user')){
-         if(isset($this->token)  || isset($this->access_token) || in_array($request,$token_not_required) || ($this->method == 'PUT' && $request == 'user')){
+         if(isset($this->access_token) || in_array($request,$token_not_required) || ($this->method == 'PUT' && $request == 'user')){
             if(!$this->has_route($request) == true){
                $this->_response("Error:Page Not Found",404);
                die;
@@ -43,9 +41,7 @@
 
       protected function verify_token(){
          $provided_token = "";
-         if(isset($_COOKIE['token'])){
-            $provided_token = $_COOKIE['token'];
-         }else if(isset($this->access_token)){
+         if(isset($this->access_token)){
             $provided_token = $this->access_token;
          }
          try{

@@ -27,7 +27,6 @@ function user_login(){
             $("#dashboard-nav").css("display","block");
             $("#register").css("display","none");
             Finch.navigate("dashboard");
-
          }
       },
    });

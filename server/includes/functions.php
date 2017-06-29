@@ -76,8 +76,8 @@
       $tokenId = base64_encode(mcrypt_create_iv(32));
       date_default_timezone_set("Asia/Kathmandu");
 
-      $issuedAt = time()-1;
-      $notBefore = $issuedAt + 0.0001;
+      $issuedAt = time() - 1;
+      $notBefore = $issuedAt + 0.1;
       $expire = $notBefore + 60*60*24;
       $serverName = 'http://localhost/eWallet';
       $data = [

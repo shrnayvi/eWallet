@@ -6,19 +6,13 @@
    class Categories extends wrapper{
       private $conn;
       private $email;
-      private $required_token;
       public function __construct($request){
          parent::__construct($request);
          $this->conn = new Database();
          // $token = $_COOKIE['token'];
-         if(isset($this->token)){
-            $this->required_token = $_COOKIE['token'];
-         }else{
-            $this->required_token = $this->access_token;
-         }
          $this->verify_token();
          $secret_key = base64_decode(SECRET_KEY);
-         $decoded_array = JWT::decode($this->required_token,$secret_key,array('HS512'));
+         $decoded_array = JWT::decode($this->access_token,$secret_key,array('HS512'));
          $this->email = $decoded_array->data->email;
          switch($this->method){
             case 'GET':

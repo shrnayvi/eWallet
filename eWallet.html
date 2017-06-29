@@ -27,7 +27,7 @@
    <div class="container-fluid" id="main-content">
       <div id="page-content">
          <h1>Welcome to eWallet</h1>
-         <h4>Please login!!!</h4>
+         <h4 id="mess">Please login!!!</h4>
       </div>
    </div>
    <script src="http://localhost/eWallet/client/static/js/handlebars-v4.0.10.js"></script>
@@ -43,11 +43,11 @@
          $("#login-nav").css("display","none");
          $("#dashboard-nav").css("display","block");
          $("#register").css("display","none");
+         $("#mess").hide();
       }
-      // $(document).on('click','.delete',function(){
-      //    var id = $('.delete').attr('id');
-      //    alert(id);
-      // });
+      $(window).on('popstate', function() {
+         $(".modal-backdrop").remove();
+      });
    </script>
 </body>
 </html>
